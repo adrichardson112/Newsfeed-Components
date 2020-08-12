@@ -141,6 +141,7 @@ function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagra
   articleOne.textContent = firstParagraph;
   articleTwo.textContent = secondParagraph;
   articleThree.textContent = thirdParagraph;
+  articleButton.textContent = 'Click Me!';
 
   articleButton.addEventListener('click', (e) => {
     article.classList.toggle('article-open');
@@ -154,4 +155,18 @@ data.forEach(data => {
   console.log('data', data);
 
 articles.appendChild(articleMaker(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph));
+});
+
+let articleNewer = data.map((item) => {
+  let article = articleMaker(
+    item.title,
+    item.date,
+    item.firstParagraph,
+    item.secondParagraph,
+    item.thirdParagraph
+  );
+
+  //Append all items and return! 
+  let listArticle = document.querySelector('.articles');
+  listArticle.appendChild(article);
 });
